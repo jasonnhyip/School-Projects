@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>gp_pj</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Features-Blue.css">
+    <link rel="stylesheet" href="assets/css/Footer-Clean-1.css">
+    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="assets/css/Highlight-Phone.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <ul class="nav nav-tabs" id="top">
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="OverviewPage/overview.html">Overview<br></a></li>
+            <li class="nav-item"><a class="nav-link active" href="#">All products<br></a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Trend</a></li>
+        </ul>
+        <div></div>
+        <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Sorted by&nbsp;</button>
+            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#" v-on:click="sortTabled()">Descending Price<br></a><a class="dropdown-item" role="presentation" href="#" v-on:click="sortTablea()">Ascending Price</a><a class="dropdown-item" role="presentation"
+                    href="#" v-on:click="sortTablel()">Latest Update</a><a class="dropdown-item" role="presentation" href="#" v-on:click="sortTableo()">Oldest Update</a></div>
+        </div>
+        <div id="bar" class="content"></div>
+        <div class="content" v-if="rows!=null" v-for="row in rows[KEY]">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-lg-3 col-xl-3 col-xs"><img class="img-fluid" src="assets/img/No_image_available.svg" v-if="row.imageUrl===&quot;&quot;"><a target="_blank" data-lightbox="img" v-bind:href="row.imageUrl" v-else="" v-bind:id="row.id"><img class="img-fluid" v-bind:src="row.imageUrl"></a></div>
+                    <div
+                        class="col-md-8 col-lg-6 col-xl-6 offset-lg-0">
+                        <div class="intro">
+                            <h3>{{row.productName}}<br></h3>
+                            <p>Second hand price:{{row.secondHandPrice}}<br></p>
+                            <p>source:&nbsp;<a v-bind:href="row.productUrl">{{row.source}}<br></a></p>
+                            <p>Product Status:{{row.productName}}<br></p>
+                            <p>Last update date:{{row.lastUpdateDate}}<br></p>
+                            <p>Warranty:{{row.warrantyDesc}}<br></p>
+                            <p>Transaction availability:{{row.availability}}<br></p>
+                        </div>
+                </div>
+                <div class="col" id="ds">
+                    <div class="intro2"></div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Describtion</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">{{row.description}}<br></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bar"></div>
+    </div>
+    <div id="page">
+        <nav>
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link active" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                <li class="page-item" v-for="page in pageNum" v-on:click="navigator(page)"><a class="page-link" href="#top">{{page}}</a></li>
+                <li class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+            </ul>
+        </nav>
+        <div class="bar"></div>
+    </div>
+    </div>
+    <div class="footer-clean">
+        <footer>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
+                        <p class="copyright">EE4216_Group2 © 2018</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox-plus-jquery.min.js"></script>
+    <script src="assets/js/index.js"></script>
+</body>
+
+</html>

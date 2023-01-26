@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Trend</title>
+    <link rel="stylesheet" href="assets_trend/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets_trend/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets_trend/css/Features-Blue.css">
+    <link rel="stylesheet" href="assets_trend/css/Footer-Clean.css">
+    <link rel="stylesheet" href="assets_trend/css/Footer-Dark.css">
+    <link rel="stylesheet" href="assets_trend/css/Highlight-Phone.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.css">
+    <link rel="stylesheet" href="assets_trend/css/styles.css">
+</head>
+
+<body class="bg-light">
+    <div id="app">
+        <ul class="nav nav-tabs" id="top">
+            <li class="nav-item"><a class="nav-link" style="cursor: pointer;" onclick="nextTab_Home();">Home</a></li>
+            <li class="nav-item"><a class="nav-link" style="cursor: pointer;" onclick="nextTab_Overview();">Overview<br></a></li>
+            <li class="nav-item"><a class="nav-link" style="cursor: pointer;" onclick="nextTab_AllProducts();">All Products<br></a></li>
+            <li class="nav-item"><a class="nav-link active" href="#">Trend</a></li>
+        </ul>
+        <div></div>
+    </div>
+
+    <div id="tread">
+        <center>
+            <div class='bg-light'>
+                <div></div>
+                <canvas @mousemove='myMouseMovement' @click='myMouseClicking' id="chart" width="1000" height="600"></canvas>
+                
+            </div>
+        </center>
+
+        <div class="content bg-light" v-if="pointAt!=-1">
+            <div class="container">
+                <div class="row my-3 p-3 bg-white shadow rounded">
+                    <div class="col-sm-4 col-lg-3 col-xl-3 col-xs bg-light"><img class="img-fluid" src="assets_trend/img/No_image_available.svg"
+                            v-if="rows[pointAt].imageUrl===&quot;&quot;"><a target="_blank" data-lightbox="img"
+                            v-bind:href="rows[pointAt].imageUrl" v-else="" v-bind:id="rows[pointAt].id"><img class="img-fluid"
+                                v-bind:src="rows[pointAt].imageUrl"></a></div>
+                    <div class="col-md-8 col-lg-6 col-xl-6 offset-lg-0">
+                        <div class="intro">
+                            <h3>{{rows[pointAt].productName}}<br></h3>
+                            <p class="text-warning">Second hand price: <strong>{{rows[pointAt].secondHandPrice}} </strong> <br> </p>
+                            <p>source:&nbsp;<a target="_blank" v-bind:href="rows[pointAt].productUrl">{{rows[pointAt].source}}<br></a></p>
+                            <p>Product Status: {{rows[pointAt].productName}}<br></p>
+                            <p>The Last Update Date:
+                                {{rows[pointAt].lastUpdateDate.substring(0,10)}}<br></p>
+                            <p>Warranty: {{rows[pointAt].warrantyDesc}}<br></p>
+                            <p>Transaction availability: {{rows[pointAt].availability}}<br></p>
+                        </div>
+                    </div>
+                    <div class="col" id="ds">
+                        <div class="intro2"></div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">Description<br></h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">{{rows[pointAt].description}}<br></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bar"></div>
+        </div>
+    </div>
+
+    <div class="footer-clean">
+        <footer>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i
+                                class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a
+                            href="#"><i class="icon ion-social-instagram"></i></a>
+                        <p class="copyright">EE4216_Group2 © 2018</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="assets_trend/js/jquery.min.js"></script>
+    <script src="assets_trend/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox-plus-jquery.min.js"></script>
+    <script src="assets_trend/js/polyfill.min.js"></script>
+    <script src="assets_trend/js/bootstrap-vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox-plus-jquery.min.js"></script>
+    <!--    <script src="assets_trend/js/index.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.1.1/Chart.min.js"></script>
+
+    <script src="assets_trend/js/mychart(vue).js"></script>
+
+</body>
+
+
+</html>

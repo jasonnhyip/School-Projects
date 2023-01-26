@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+    <link rel="stylesheet" href="assets_landing/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" href="assets_landing/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets_landing/css/untitled.css">
+</head>
+
+<body>
+    <header class="masthead text-white text-center" style="background:url('assets_landing/img/The-next-generation-operating-model_1536x1536_Standard.jpg')no-repeat center center;background-size:cover;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <h1 class="mb-5">The Best Second Hand Price</h1>
+                </div>
+                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                    <form>
+                        <div class="form-row">
+                            <div class="col-12 col-md-9 mb-2 mb-md-0"><input id="search" class="form-control form-control-lg" type="text" placeholder="Enter your product..." onkeypress="searchKeyPress(event);"></div>
+                            <div class="col-12 col-md-3"><button id="submitBtn" class="btn btn-success btn-block btn-lg" type="button">Search</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <footer class="footer bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 my-auto h-100 text-center text-lg-left">
+                    <ul class="list-inline mb-2">
+                        <li class="list-inline-item"><a href="#">About</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#">Contact</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#">Terms of &nbsp;Use</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                    </ul>
+                    <p class="text-muted small mb-4 mb-lg-0">© Brand 2018. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-6 my-auto h-100 text-center text-lg-right">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets_landing/js/jquery.min.js"></script>
+    <script src="assets_landing/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        var searchBar = document.getElementById('search')
+
+        var submitBtn = document.getElementById('submitBtn')
+
+        submitBtn.addEventListener('click', () => {
+            const key = console.log(searchBar.value)
+            console.log("key=" + key);
+            window.location.replace("overview?product_name=" + searchBar.value);
+        })
+        
+        function searchKeyPress(e)
+        {
+            // look for window.event in case event isn't passed in
+            if (typeof e == 'undefined' && window.event) { e = window.event; }
+            
+            if (e.keyCode == 13)
+            {
+                e.preventDefault();
+                window.location.replace("overview?product_name=" + searchBar.value);
+            }
+        }
+    </script>
+</body>
+
+</html>

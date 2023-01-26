@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>All Products</title>
+    <link rel="stylesheet" href="assets_allproducts/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets_allproducts/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets_allproducts/css/Features-Blue.css">
+    <link rel="stylesheet" href="assets_allproducts/css/Footer-Clean-1.css">
+    <link rel="stylesheet" href="assets_allproducts/css/Footer-Clean.css">
+    <link rel="stylesheet" href="assets_allproducts/css/Footer-Dark.css">
+    <link rel="stylesheet" href="assets_allproducts/css/styles.css">
+</head>
+
+<body class="bg-light">
+    <div id="app">
+        <ul class="nav nav-tabs" id="top">
+            <li class="nav-item"><a class="nav-link" style="cursor: pointer;" onclick="nextTab_Home();">Home</a></li>
+            <li class="nav-item"><a class="nav-link" style="cursor: pointer;" onclick="nextTab_Overview();">Overview<br></a></li>
+            <li class="nav-item"><a class="nav-link active" href="#">All Products<br></a></li>
+            <li class="nav-item"><a class="nav-link" style="cursor: pointer;" onclick="nextTab_Trend();">Trend</a></li>
+        </ul>
+        <div></div>
+        <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Sorted by {{sortby}}&nbsp;</button>
+            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" v-on:click="sortTabled">Descending Price<i class="icon ion-android-arrow-down float-right"></i></a><a class="dropdown-item" role="presentation" v-on:click="sortTablea()">Ascending Price<i class="icon ion-android-arrow-up float-right"></i></a>
+                <a
+                    class="dropdown-item" role="presentation" v-on:click="sortTablel()">Latest Update Date&nbsp;<i class="icon ion-android-arrow-down float-right"></i></a><a class="dropdown-item" role="presentation" v-on:click="sortTableo()">Oldest Update Date&nbsp;<i class="icon ion-android-arrow-up float-right"></i></a></div>
+        </div>
+        <div class="content bg-light" v-if="rows!=null" v-for="row in rows[KEY]">
+            <div class="container">
+                <div class="row my-3 p-3 bg-white shadow rounded">
+                    <div class="col-sm-4 col-lg-3 col-xl-3 bg-light"><img class="img-fluid photo" src="assets_allproducts/img/No_image_available.svg" v-if="row.imageUrl===&quot;&quot;"><img class="img-fluid photo" v-bind:src="row.imageUrl" v-else=""></div>
+                    <div class="col-md-8 col-lg-6 col-xl-6 offset-lg-0">
+                        <div class="intro">
+                            <h3>{{row.productName}}<br></h3>
+                            <p class="lead text-warning"><strong>Second hand price: {{row.secondHandPrice}}</strong><br></p>
+                            <p>source:&nbsp;<a target="_blank" v-bind:href="row.productUrl">{{row.source}}<br></a></p>
+                            <p>Product Status: {{row.productName}}<br></p>
+                            <p>The Last Update Date: {{row.lastUpdateDate.substring(0,row.lastUpdateDate.indexOf('.')).replace(/T/," ")}}<br></p>
+                            <p>Warranty: {{row.warrantyDesc}}<br></p>
+                            <p>Transaction availability: {{row.availability}}<br></p>
+                        </div>
+                    </div>
+                    <div class="col col-sm4 col-lg-3 col-xl-3" id="ds">
+                        <div class="intro2"></div>
+                        <div class="card shadow">
+                            <div class="card-header">
+                                <h5 class="mb-0">Description<br></h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">{{row.description}}<br></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><div>
+    <b-pagination align="center" :total-rows="total" v-model="currentPage" :per-page="10" limit="8" @input="navigator(currentPage)">
+    </b-pagination>
+    <br>
+</div>
+</div>
+    <div class="footer-clean">
+        <footer>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 item social"><a href="https://www.facebook.com/" target="_blank"><i class="icon ion-social-facebook"></i></a><a href="https://twitter.com/" target="_blank"><i class="icon ion-social-twitter"></i></a><a href="https://www.snapchat.com/" target="_blank"><i class="icon ion-social-snapchat"></i></a>
+                        <a
+                            href="https://www.instagram.com" target="_blank"><i class="icon ion-social-instagram"></i></a>
+                            <p class="copyright">EE4216 © 2018</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="assets_allproducts/js/jquery.min.js"></script>
+    <script src="assets_allproducts/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox-plus-jquery.min.js"></script>
+    <script src="assets_allproducts/js/polyfill.min.js"></script>
+    <script src="assets_allproducts/js/bootstrap-vue.js"></script>
+    <script src="assets_allproducts/js/index.js"></script>
+</body>
+
+</html>
