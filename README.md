@@ -16,3 +16,6 @@
 - LSTMstockpricepred_Q2.ipynb: Predict stock price with Long Short-Term Memory(LSTM) and sliding window
 - Vader_LSTM.ipynb: Perform sentiment analysis on CoinDesk news and examine if correlation between CoinDesk news and Ethereum price exists
 - Scrapper.ipynb: Parse CoinDesk news with BeautifulSoup
+
+## Price Comparison on Second-Hand Gadgets
+- The web application is built using Vue.js and Spring Boot. It aims to collect the information of second hand electronic gadgets in HK and provide an overview for price comparison.
